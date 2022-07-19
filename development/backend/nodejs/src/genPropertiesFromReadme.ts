@@ -32,7 +32,7 @@ const parseProvLine = (line: string): string => {
 
     let matched = line.match(REG_PROV) as RegExpMatchArray
     curProv     = {name: matched[1], count: parseInt(matched[2]), children: []}
-    console.log('parsing province: ' + curProv.name)
+    // console.log('parsing province: ' + curProv.name) # since we have powerful error track, the log is unnecessary now
     return line
 }
 
@@ -155,11 +155,11 @@ const validate = () => {
 const writeSuspensionData = () => {
     const PROPERTIES_TREE_PATH = path.join(DATA_GENERATED_DIR, "properties-tree.json")
     fs.writeFileSync(PROPERTIES_TREE_PATH, JSON.stringify(curData, null, 2), 'utf-8')
-    console.log('wrote suspension data into file://' + PROPERTIES_TREE_PATH)
+    console.log('wrote properties data into file://' + PROPERTIES_TREE_PATH)
 
     const PROPERTIES_FLAT_PATH = path.join(DATA_GENERATED_DIR, "properties-flat.json")
     fs.writeFileSync(PROPERTIES_FLAT_PATH, JSON.stringify(flatItems, null, 2), 'utf-8')
-    console.log('wrote suspension data into file://' + PROPERTIES_FLAT_PATH)
+    console.log('wrote properties data into file://' + PROPERTIES_FLAT_PATH)
 }
 
 
